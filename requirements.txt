@@ -1,0 +1,8 @@
+pandas
+numpy
+lightgbm
+pyarrow
+snowflake-connector-python
+cryptography
+scikit-learn
+boto3

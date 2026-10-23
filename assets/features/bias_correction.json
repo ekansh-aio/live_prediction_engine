@@ -1,0 +1,33 @@
+{
+  "legs_ahead_adj_h": {
+    "0": 1.96,
+    "1": -23.68,
+    "2": 1.31
+  },
+  "shrink_k": 20,
+  "logratio_p10": -0.3239,
+  "logratio_p90": 0.408,
+  "asof": "2026-06-30T20:44:20Z",
+  "fitted_on": "data\\outputs\\calib_bt\\consolidated_backtest.csv",
+  "fit_window_snap_min": "2026-04-19T01:06:12+00:00",
+  "fit_window_snap_max": "2026-06-30T16:13:39+00:00",
+  "n_snapshots": 26045,
+  "n_voyages": 743,
+  "per_bucket": {
+    "0": {
+      "median_err_h": 2.01,
+      "voyages": 726,
+      "snapshots": 22612
+    },
+    "1": {
+      "median_err_h": -27.38,
+      "voyages": 128,
+      "snapshots": 3077
+    },
+    "2": {
+      "median_err_h": 3.19,
+      "voyages": 14,
+      "snapshots": 356
+    }
+  }
+}
