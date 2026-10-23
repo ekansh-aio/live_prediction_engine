@@ -50,17 +50,19 @@ def load_port_lookup(client=None) -> pd.DataFrame:
 
 
 def load_vessel_features(client, leg_ids) -> pd.DataFrame:
+    ids = sorted({int(i) for i in leg_ids})
+    if ids and client is not None:
+        # Always fetch fresh per-voyage when a client is available — avoids stale
+        # parquet entries (e.g. future legs absent from date-filtered bulk snapshot).
+        log.info("Fetching vessel features from Snowflake for %d legs", len(ids))
+        sql = (config.SQL_DIR / "vessel_features.sql").read_text(encoding="utf-8")
+        return client.query_text(sql.replace("{leg_ids}", ",".join(map(str, ids))))
     path = config.LOOKUP_FILES["vessel_features"]
     if path.exists():
         return read_table(path)
-    ids = sorted({int(i) for i in leg_ids})
     if not ids:
         return pd.DataFrame()
-    if client is None:
-        raise FileNotFoundError(f"Missing vessel features and no Snowflake client: {path}")
-    log.info("Vessel features not found locally; fetching from Snowflake for %d legs", len(ids))
-    sql = (config.SQL_DIR / "vessel_features.sql").read_text(encoding="utf-8")
-    return client.query_text(sql.replace("{leg_ids}", ",".join(map(str, ids))))
+    raise FileNotFoundError(f"Missing vessel features and no Snowflake client: {path}")
 
 
 def read_optional(path: Path) -> pd.DataFrame | None:

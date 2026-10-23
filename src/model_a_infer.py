@@ -150,22 +150,24 @@ class ModelAInfer:
         if self.context is not None:
             self.context.columns = [str(c).lower() for c in self.context.columns]
 
-    def _enrich(self, legs_df: pd.DataFrame) -> pd.DataFrame:
+    def _enrich(self, legs_df: pd.DataFrame, vessel_features_override=None, context_override=None) -> pd.DataFrame:
         d = uppercase_columns(legs_df)
         for c in ["TIME_STARTED", "TIME_COMPLETED", "INITIAL_ETA", "TIME_CREATED", "ETA_UPDATED", "EARLIEST_DEPARTURE", "LATEST_DEPARTURE", "EARLIEST_ARRIVAL", "LATEST_ARRIVAL"]:
             if c in d.columns:
                 d[c] = parse_dt(d[c])
         d = d.merge(self.ports_start, on="START_PORT_ID", how="left")
         d = d.merge(self.ports_end, on="END_PORT_ID", how="left")
-        if "SUBSERVICE_ID" in self.vessel_features.columns:
-            vess = self.vessel_features.rename(columns={"SUBSERVICE_ID": "ID"})
+        vf = vessel_features_override if vessel_features_override is not None else self.vessel_features
+        if vf is not None and "SUBSERVICE_ID" in vf.columns:
+            vess = vf.rename(columns={"SUBSERVICE_ID": "ID"})
             d = d.merge(vess, on="ID", how="left", suffixes=("", "_VESSEL"))
         if self.carrier_map is not None and "VOYAGE_ID" in d.columns and "VOYAGE_ID" in self.carrier_map.columns:
             d = d.merge(self.carrier_map.drop_duplicates("VOYAGE_ID"), on="VOYAGE_ID", how="left")
         if self.voyage_extras is not None and "VOYAGE_ID" in d.columns and "VOYAGE_ID" in self.voyage_extras.columns:
             d = d.merge(self.voyage_extras.drop_duplicates("VOYAGE_ID"), on="VOYAGE_ID", how="left", suffixes=("", "_EXTRA"))
-        if self.context is not None and "ID" in d.columns:
-            d = d.merge(self.context.rename(columns={"subservice_id": "ID"}), on="ID", how="left")
+        ctx = context_override if context_override is not None else self.context
+        if ctx is not None and "ID" in d.columns:
+            d = d.merge(ctx.rename(columns={"subservice_id": "ID"}), on="ID", how="left")
             if "has_context" in d.columns:
                 d["has_context"] = d["has_context"].fillna(0).astype(float)
         return d
@@ -356,8 +358,8 @@ class ModelAInfer:
                 model_frame["season_river"] = season4.astype(str) + "_" + river.astype(str)
         return align_to_booster(model_frame, self.model, feature_names=self.model_feature_names)
 
-    def build_features(self, legs_df: pd.DataFrame) -> pd.DataFrame:
-        d = self._enrich(legs_df)
+    def build_features(self, legs_df: pd.DataFrame, vessel_features_override=None, context_override=None) -> pd.DataFrame:
+        d = self._enrich(legs_df, vessel_features_override=vessel_features_override, context_override=context_override)
         if "SELECTED_ROUTE" in d.columns:
             ra = d["SELECTED_ROUTE"].apply(self.parse_route_all).apply(pd.Series)
             for c in ra.columns:
@@ -421,8 +423,8 @@ class ModelAInfer:
         d = self._apply_encoding_priors(d)
         return d
 
-    def predict(self, legs_df: pd.DataFrame):
-        feat = self.build_features(legs_df)
+    def predict(self, legs_df: pd.DataFrame, vessel_features_override=None, context_override=None):
+        feat = self.build_features(legs_df, vessel_features_override=vessel_features_override, context_override=context_override)
         model_frame = self._prepare_model_frame(feat)
         pred = self.model.predict(model_frame)
         feat["predicted_duration_h"] = _compose_dur(feat["baseline_h"], pred)

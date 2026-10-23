@@ -5,8 +5,6 @@ import logging
 import numpy as np
 import pandas as pd
 
-from snowflake_client import SnowflakeClient
-
 from . import assets, config, markerwait, stoppage
 from .consolidator_runtime import assemble_voyage
 from .dynamic_infer import DynamicPredictor, predict_dynamic
@@ -16,6 +14,15 @@ from .prediction_store import store_prediction
 from .utils import jsonable, parse_dt, uppercase_columns
 
 log = logging.getLogger("live_predict")
+
+# Stop-type combos that mark a "target" subservice leg and reset the context block.
+# Mirrors build_leg_context_features.py in Opentug-Phase2.
+_CONTEXT_TARGETS = {(1, 1), (3, 1), (1, 2)}
+_CTX_INTERCHANGE_START = 6
+_CTX_INTERCHANGE_END = 6
+_CTX_OFF_HIRE_END = 4
+_CTX_FUEL_OPS_END = (7, 9, 10)
+_CTX_HIRE_TRANSIT = (3, 3)
 
 
 def classify_leg_status(df: pd.DataFrame) -> pd.DataFrame:
@@ -35,6 +42,115 @@ def classify_leg_status(df: pd.DataFrame) -> pd.DataFrame:
 
 def _read_sql(name: str) -> str:
     return (config.SQL_DIR / name).read_text(encoding="utf-8")
+
+
+def _aggregate_context_spine(pending: list, anchor_e) -> dict:
+    """Aggregate preceding non-target legs into context features (no AIS)."""
+    n = len(pending)
+    ctx_inter = sum(1 for L in pending if L["S"] == _CTX_INTERCHANGE_START or L["E6"] == _CTX_INTERCHANGE_END)
+    ctx_off   = sum(1 for L in pending if L["E6"] == _CTX_OFF_HIRE_END)
+    ctx_fuel  = sum(1 for L in pending if L["E6"] in _CTX_FUEL_OPS_END)
+    ctx_hire  = sum(1 for L in pending if L["S"] == _CTX_HIRE_TRANSIT[0] and L["E6"] == _CTX_HIRE_TRANSIT[1])
+    comp = [L for L in pending if pd.notna(L["C"]) and pd.notna(anchor_e) and L["C"] <= anchor_e]
+
+    total_dist = sum(L["DIST"] for L in pending if pd.notna(L["DIST"]))
+    spds = [L["SPD"] for L in pending if pd.notna(L["SPD"])]
+    p_hrs = [
+        L["DIST"] / L["SPD"] if (pd.notna(L["DIST"]) and pd.notna(L["SPD"]) and L["SPD"] > 0) else np.nan
+        for L in pending
+    ]
+    p_hrs = [h for h in p_hrs if not np.isnan(h)]
+
+    actual_total = np.nan
+    gap_h = np.nan
+    if comp and pd.notna(anchor_e):
+        durations = [(L["C"] - L["E"]).total_seconds() / 3600.0 for L in comp if pd.notna(L["E"])]
+        if durations:
+            actual_total = sum(durations)
+        last_end = max(L["C"] for L in comp)
+        gap_h = max(0.0, (anchor_e - last_end).total_seconds() / 3600.0)
+
+    return {
+        "preceding_non_target_count": n,
+        "had_interchange":      int(ctx_inter > 0),
+        "had_off_hire":         int(ctx_off > 0),
+        "had_fuel_or_ops":      int(ctx_fuel > 0),
+        "had_hire_transit":     int(ctx_hire > 0),
+        "ctx_interchange_count": ctx_inter,
+        "ctx_completed_count":  len(comp),
+        "ctx_total_planned_dist_nm": round(total_dist, 2) if total_dist else np.nan,
+        "ctx_avg_planned_speed":     round(float(np.mean(spds)), 2) if spds else np.nan,
+        "ctx_total_planned_h":       round(float(np.sum(p_hrs)), 2) if p_hrs else np.nan,
+        "ctx_max_planned_h":         round(float(np.max(p_hrs)), 2) if p_hrs else np.nan,
+        "ctx_last_ctx_planned_h":    round(float(p_hrs[-1]), 2) if p_hrs else np.nan,
+        "ctx_actual_total_h":        round(actual_total, 2) if pd.notna(actual_total) else np.nan,
+        "ctx_gap_h_to_target_e":     round(gap_h, 2) if pd.notna(gap_h) else np.nan,
+    }
+
+
+def compute_leg_context_from_spine(voyage_df: pd.DataFrame) -> pd.DataFrame:
+    """Compute per-leg context features from the voyage spine.
+
+    Uses the same aggregation logic as build_leg_context_features.py but derives
+    everything from voyage_legs (already in the payload). AIS-based context stats
+    (ctx_ping_count, ctx_avg_sog, etc.) are NaN — the model handles them as missing.
+    """
+    df = voyage_df.copy()
+    df = df.sort_values(["VOYAGE_ID", "SEQUENCE_NUM"]).reset_index(drop=True)
+
+    def _stop(val):
+        try:
+            return int(pd.to_numeric(val, errors="coerce"))
+        except (TypeError, ValueError):
+            return -1
+
+    rows = []
+    pending: list = []
+    cur_vid = None
+
+    for _, r in df.iterrows():
+        vid = r.get("VOYAGE_ID")
+        if vid != cur_vid:
+            cur_vid = vid
+            pending = []
+
+        ae = r.get("ETA_UPDATED")
+        feats = _aggregate_context_spine(pending, ae)
+        feats["subservice_id"] = int(r["ID"])
+        for c in ["ctx_ping_count", "ctx_avg_sog", "ctx_pct_moving", "ctx_zero_speed_share", "ctx_avg_barges"]:
+            feats[c] = np.nan
+        feats["has_context"] = int(feats["preceding_non_target_count"] > 0)
+        rows.append(feats)
+
+        s_type = _stop(r.get("START_STOP_TYPE"))
+        e_type = _stop(r.get("END_STOP_TYPE"))
+        is_target = (
+            (s_type, e_type) in _CONTEXT_TARGETS
+            and pd.notna(r.get("ETA_UPDATED"))
+            and pd.notna(r.get("TIME_COMPLETED"))
+        )
+        if is_target:
+            pending = []
+        else:
+            pending.append({
+                "E": r.get("ETA_UPDATED"),
+                "C": r.get("TIME_COMPLETED"),
+                "S": s_type,
+                "E6": e_type,
+                "DIST": pd.to_numeric(r.get("ESTIMATED_DISTANCE"), errors="coerce"),
+                "SPD": pd.to_numeric(r.get("ESTIMATED_SPEED"), errors="coerce"),
+            })
+
+    return pd.DataFrame(rows)
+
+
+def fetch_vessel_features(client, leg_ids: list) -> pd.DataFrame:
+    """Fetch vessel/barge composition features from Snowflake for the given leg IDs."""
+    if not leg_ids:
+        return pd.DataFrame()
+    ids_str = ",".join(str(int(i)) for i in leg_ids)
+    sql = _read_sql("vessel_features.sql").replace("{leg_ids}", ids_str)
+    return client.query_text(sql)
 
 
 def _departure_anchor_iso(leg_row: pd.Series) -> str | None:
@@ -85,6 +201,7 @@ def split_future_legs(voyage_df: pd.DataFrame) -> pd.DataFrame:
 
 
 def predict_voyage_live(voyage_id: int, store: bool = True) -> dict:
+    from snowflake_client import SnowflakeClient  # lazy — not available in SageMaker container
     log.info("Starting prediction for voyage_id=%s (store=%s)", voyage_id, store)
     assets.validate_required_assets()
     log.info("Assets validated")
@@ -115,7 +232,8 @@ def predict_voyage_live(voyage_id: int, store: bool = True) -> dict:
         log.info("Models loaded")
         log.info("Building Model A features/predictions")
         ma_input = pd.concat([pd.DataFrame([current_leg]), future_legs], ignore_index=True)
-        ma_scores, ma_feature_map = model_a.predict(ma_input)
+        context_override = compute_leg_context_from_spine(voyage_df)
+        ma_scores, ma_feature_map = model_a.predict(ma_input, context_override=context_override)
         log.info("Model A done (%d predictions)", len(ma_scores))
         ma_by_id = {int(k): v for k, v in ma_scores.set_index("ID")["predicted_duration_h"].to_dict().items()}
 
@@ -211,7 +329,11 @@ def predict_voyage_from_data(payload: dict, *, preloaded: dict | None = None) ->
               "EARLIEST_DEPARTURE", "LATEST_DEPARTURE", "EARLIEST_ARRIVAL", "LATEST_ARRIVAL"]:
         if c in voyage_df.columns:
             voyage_df[c] = parse_dt(voyage_df[c])
-    voyage_df = classify_leg_status(voyage_df).sort_values(["VOYAGE_ID", "SEQUENCE_NUM"]).reset_index(drop=True)
+    # Only reclassify if LEG_STATUS is absent — callers that pre-fetched via
+    # fetch_live_voyage_spine already have the correct status in the payload.
+    if "LEG_STATUS" not in voyage_df.columns:
+        voyage_df = classify_leg_status(voyage_df)
+    voyage_df = voyage_df.sort_values(["VOYAGE_ID", "SEQUENCE_NUM"]).reset_index(drop=True)
 
     ais_df = uppercase_columns(pd.DataFrame(payload.get("current_leg_ais", [])))
     statuslog_df = uppercase_columns(pd.DataFrame(payload.get("current_leg_statuslog", [])))
@@ -234,8 +356,20 @@ def predict_voyage_from_data(payload: dict, *, preloaded: dict | None = None) ->
         marker_map = markerwait.load()
         stop_patterns = stoppage.load()
 
+    # Fresh vessel features from payload (caller fetched them live from Snowflake)
+    vessel_features_override = None
+    if payload.get("vessel_features"):
+        vessel_features_override = uppercase_columns(pd.DataFrame(payload["vessel_features"]))
+
+    # Compute leg context features on-the-fly from the voyage spine — always fresh
+    context_override = compute_leg_context_from_spine(voyage_df)
+
     ma_input = pd.concat([pd.DataFrame([current_leg]), future_legs], ignore_index=True)
-    ma_scores, ma_feature_map = model_a.predict(ma_input)
+    ma_scores, ma_feature_map = model_a.predict(
+        ma_input,
+        vessel_features_override=vessel_features_override,
+        context_override=context_override,
+    )
     ma_by_id = {int(k): v for k, v in ma_scores.set_index("ID")["predicted_duration_h"].to_dict().items()}
 
     dynamic_remaining_h, dynamic_row, dynamic_features = predict_dynamic(

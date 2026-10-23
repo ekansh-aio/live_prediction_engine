@@ -28,6 +28,7 @@ from src.live_predict import (  # noqa: E402
     fetch_live_leg_ais,
     fetch_live_leg_statuslog,
     fetch_live_voyage_spine,
+    fetch_vessel_features,
     select_current_leg,
 )
 from src.utils import uppercase_columns  # noqa: E402
@@ -47,6 +48,11 @@ def build_payload(voyage_id: int, client: SnowflakeClient) -> dict:
     statuslog_df = fetch_live_leg_statuslog(client, current_leg)
     print(f"  {len(statuslog_df)} statuslog rows")
 
+    print("Fetching vessel features (fresh)...")
+    leg_ids = voyage_df["ID"].tolist()
+    vessel_features_df = fetch_vessel_features(client, leg_ids)
+    print(f"  {len(vessel_features_df)} vessel feature rows")
+
     snapshot_ts = pd.Timestamp.now("UTC")
 
     return {
@@ -55,6 +61,7 @@ def build_payload(voyage_id: int, client: SnowflakeClient) -> dict:
         "voyage_legs": voyage_df.to_dict(orient="records"),
         "current_leg_ais": ais_df.to_dict(orient="records"),
         "current_leg_statuslog": statuslog_df.to_dict(orient="records"),
+        "vessel_features": vessel_features_df.to_dict(orient="records"),
     }
 
 
