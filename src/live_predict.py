@@ -10,7 +10,7 @@ from .consolidator_runtime import assemble_voyage
 from .dynamic_infer import DynamicPredictor, predict_dynamic
 from .flc_infer import FLCInfer
 from .model_a_infer import ModelAInfer
-from .prediction_store import store_prediction
+from .prediction_store import load_latest, store_prediction
 from .utils import jsonable, parse_dt, uppercase_columns
 
 log = logging.getLogger("live_predict")
@@ -200,6 +200,26 @@ def split_future_legs(voyage_df: pd.DataFrame) -> pd.DataFrame:
     return voyage_df[voyage_df["LEG_STATUS"] == "future"].sort_values("SEQUENCE_NUM")
 
 
+def _fill_missing_eta_updated(voyage_df: pd.DataFrame, chain_start: pd.Timestamp) -> pd.DataFrame:
+    """Set ETA_UPDATED on future legs that are missing it by chaining from chain_start.
+
+    chain_start is snapshot_ts + dynamic_remaining_h of the current leg, i.e. the
+    predicted moment the current leg ends and the first future leg begins.
+    Subsequent legs advance the chain by each leg's naive_h (dist / speed).
+    """
+    df = voyage_df.copy()
+    ts = chain_start
+    for idx in df[df["LEG_STATUS"] == "future"].sort_values("SEQUENCE_NUM").index:
+        if pd.isna(df.at[idx, "ETA_UPDATED"]):
+            df.at[idx, "ETA_UPDATED"] = ts
+            log.info("Chained ETA_UPDATED for future leg_id=%s → %s", df.at[idx, "ID"], ts)
+        dist = pd.to_numeric(df.at[idx, "ESTIMATED_DISTANCE"], errors="coerce")
+        spd = pd.to_numeric(df.at[idx, "ESTIMATED_SPEED"], errors="coerce")
+        if pd.notna(dist) and pd.notna(spd) and spd > 0:
+            ts = ts + pd.Timedelta(hours=float(dist / spd))
+    return df
+
+
 def predict_voyage_live(voyage_id: int, store: bool = True) -> dict:
     from snowflake_client import SnowflakeClient  # lazy — not available in SageMaker container
     log.info("Starting prediction for voyage_id=%s (store=%s)", voyage_id, store)
@@ -230,15 +250,17 @@ def predict_voyage_live(voyage_id: int, store: bool = True) -> dict:
         marker_map = markerwait.load()
         stop_patterns = stoppage.load()
         log.info("Models loaded")
+        log.info("Running Dynamic prediction (pass 1 — chain anchor for future legs)")
+        dyn_chain_h, _, _ = predict_dynamic(current_leg, ais_df, statuslog_df, now_ts, dynamic, voyage_df=voyage_df)
+        voyage_df = _fill_missing_eta_updated(voyage_df, now_ts + pd.Timedelta(hours=dyn_chain_h))
+        future_legs = split_future_legs(voyage_df)
         log.info("Building Model A features/predictions")
         ma_input = pd.concat([pd.DataFrame([current_leg]), future_legs], ignore_index=True)
-        context_override = compute_leg_context_from_spine(voyage_df)
-        ma_scores, ma_feature_map = model_a.predict(ma_input, context_override=context_override)
+        ma_scores, ma_feature_map = model_a.predict(ma_input)
         log.info("Model A done (%d predictions)", len(ma_scores))
         ma_by_id = {int(k): v for k, v in ma_scores.set_index("ID")["predicted_duration_h"].to_dict().items()}
-
-        log.info("Running Dynamic prediction")
-        dynamic_remaining_h, dynamic_row, dynamic_features = predict_dynamic(current_leg, ais_df, statuslog_df, now_ts, dynamic, voyage_df=voyage_df)
+        log.info("Running Dynamic prediction (pass 2 — with Model A fallback)")
+        dynamic_remaining_h, dynamic_row, dynamic_features = predict_dynamic(current_leg, ais_df, statuslog_df, now_ts, dynamic, voyage_df=voyage_df, model_a_pred_h=ma_by_id.get(int(current_leg["ID"])))
         log.info("Dynamic done (remaining_h=%.2f)", dynamic_remaining_h)
 
         future_predictions = []
@@ -361,19 +383,30 @@ def predict_voyage_from_data(payload: dict, *, preloaded: dict | None = None) ->
     if payload.get("vessel_features"):
         vessel_features_override = uppercase_columns(pd.DataFrame(payload["vessel_features"]))
 
-    # Compute leg context features on-the-fly from the voyage spine — always fresh
-    context_override = compute_leg_context_from_spine(voyage_df)
+    dyn_chain_h, _, _ = predict_dynamic(current_leg, ais_df, statuslog_df, snapshot_ts, dynamic, voyage_df=voyage_df)
+    voyage_df = _fill_missing_eta_updated(voyage_df, snapshot_ts + pd.Timedelta(hours=dyn_chain_h))
+    future_legs = split_future_legs(voyage_df)
 
     ma_input = pd.concat([pd.DataFrame([current_leg]), future_legs], ignore_index=True)
     ma_scores, ma_feature_map = model_a.predict(
         ma_input,
         vessel_features_override=vessel_features_override,
-        context_override=context_override,
     )
     ma_by_id = {int(k): v for k, v in ma_scores.set_index("ID")["predicted_duration_h"].to_dict().items()}
 
+    prev_dynamic_h, prev_as_of_utc = None, None
+    _prev = load_latest(int(payload["voyage_id"]))
+    if _prev:
+        _prev_leg = next((l for l in _prev.get("legs", []) if l.get("role") == "current"), None)
+        if _prev_leg and _prev_leg.get("dynamic_pred_h") is not None:
+            prev_dynamic_h = float(_prev_leg["dynamic_pred_h"])
+            prev_as_of_utc = pd.Timestamp(_prev["as_of_utc"])
+
     dynamic_remaining_h, dynamic_row, dynamic_features = predict_dynamic(
-        current_leg, ais_df, statuslog_df, snapshot_ts, dynamic, voyage_df=voyage_df
+        current_leg, ais_df, statuslog_df, snapshot_ts, dynamic, voyage_df=voyage_df,
+        model_a_pred_h=ma_by_id.get(int(current_leg["ID"])),
+        prev_dynamic_h=prev_dynamic_h,
+        prev_as_of_utc=prev_as_of_utc,
     )
 
     future_predictions = []

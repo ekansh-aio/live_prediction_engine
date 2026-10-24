@@ -68,7 +68,7 @@ def _quote_ident(value):
 def _connect(account, user, password, warehouse, database, schema, role, passcode):
     kwargs = dict(
         account=account, user=user, password=password,
-        passcode=passcode, authenticator="username_password_mfa",
+        passcode=passcode, authenticator="USERNAME_PASSWORD_MFA",
         warehouse=warehouse, database=database, schema=schema,
         login_timeout=60,
     )

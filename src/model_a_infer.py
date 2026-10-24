@@ -367,7 +367,11 @@ class ModelAInfer:
         d["LOCKS_HOURS_INCLUDED"] = pd.to_numeric(d.get("LOCKS_HOURS_INCLUDED"), errors="coerce").fillna(0.0)
         d["dwell_start_h"] = d.get("TIME_IN_START_PORT", pd.Series(index=d.index)).apply(interval_to_hours).fillna(12.0)
         d["dwell_end_h"] = d.get("TIME_IN_END_PORT", pd.Series(index=d.index)).apply(interval_to_hours).fillna(12.0)
-        d["naive_h"] = pd.to_numeric(d.get("ESTIMATED_DISTANCE"), errors="coerce") / pd.to_numeric(d.get("ESTIMATED_SPEED"), errors="coerce").replace(0, np.nan) + d["LOCKS_HOURS_INCLUDED"]
+        _eff_dist = pd.to_numeric(d.get("ESTIMATED_DISTANCE"), errors="coerce").fillna(
+            pd.to_numeric(d.get("route_dist_nm"), errors="coerce")
+        )
+        _eff_spd = pd.to_numeric(d.get("ESTIMATED_SPEED"), errors="coerce").replace(0, np.nan)
+        d["naive_h"] = _eff_dist / _eff_spd + d["LOCKS_HOURS_INCLUDED"]
         d["baseline_h"] = d["naive_h"]
         d["has_route_dur"] = d.get("route_dur_h", pd.Series(index=d.index)).notna().astype(int)
         d["plan_anchor"] = d.get("TIME_CREATED")
@@ -420,6 +424,27 @@ class ModelAInfer:
         d["port_pop_log"] = np.nan
         d = self._apply_pattern_features(d)
         d = self._apply_knn_features(d)
+        _nan_bl = d["baseline_h"].isna()
+        if _nan_bl.any():
+            _pat_spd = pd.to_numeric(d.get("pat_speed_nm_h"), errors="coerce").replace(0, np.nan)
+            _spd_rec = (_eff_dist / _pat_spd + d["LOCKS_HOURS_INCLUDED"]).where(_pat_spd.notna())
+            d.loc[_nan_bl, "baseline_h"] = _spd_rec[_nan_bl]
+            d.loc[_nan_bl, "naive_h"] = _spd_rec[_nan_bl]
+            _nan_bl = d["baseline_h"].isna()
+        if _nan_bl.any():
+            _route_dur = pd.to_numeric(d.get("route_dur_h"), errors="coerce")
+            d.loc[_nan_bl, "baseline_h"] = _route_dur[_nan_bl]
+            d.loc[_nan_bl, "naive_h"] = _route_dur[_nan_bl]
+            _nan_bl = d["baseline_h"].isna()
+        if _nan_bl.any():
+            d.loc[_nan_bl, "baseline_h"] = d.loc[_nan_bl, "pat_med_h"]
+            d.loc[_nan_bl, "naive_h"] = d.loc[_nan_bl, "pat_med_h"]
+            _nan_bl = d["baseline_h"].isna()
+        if _nan_bl.any():
+            d.loc[_nan_bl, "baseline_h"] = d.loc[_nan_bl, "knn_pred_h"]
+            d.loc[_nan_bl, "naive_h"] = d.loc[_nan_bl, "knn_pred_h"]
+        d["pat_ratio_naive"] = d["pat_med_h"] / (d["naive_h"] + 0.001)
+        d["knn_ratio_naive"] = d["knn_pred_h"] / (d["naive_h"] + 0.001)
         d = self._apply_encoding_priors(d)
         return d
 

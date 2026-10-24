@@ -36,6 +36,10 @@ def env(name: str, default: str | None = None) -> str | None:
 SF_MODE = env("SF_MODE", "daemon")
 MODEL_A_TARGET_MODE = env("MODEL_A_TARGET_MODE", "log_ratio")
 
+DYNAMIC_REMAINING_CAP_H    = float(env("DYNAMIC_REMAINING_CAP_H",    "720") or "720")
+DYNAMIC_REMAINING_MA_CAP   = float(env("DYNAMIC_REMAINING_MA_CAP",   "3")   or "3")
+DYNAMIC_REMAINING_PLAN_CAP = float(env("DYNAMIC_REMAINING_PLAN_CAP", "5")   or "5")
+
 MODELS_DIR = ASSETS / "models"
 MODEL_A_DIR = ASSETS / "model_a"
 FEATURES_DIR = ASSETS / "features"

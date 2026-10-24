@@ -9,6 +9,16 @@ from .utils import jsonable
 STORE_DIR = Path(__file__).resolve().parents[1] / "predictions"
 
 
+def load_latest(voyage_id: int) -> dict | None:
+    latest = STORE_DIR / f"voyage_{voyage_id}_latest.json"
+    if not latest.exists():
+        return None
+    try:
+        return json.loads(latest.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
 def store_prediction(result: dict) -> str:
     STORE_DIR.mkdir(exist_ok=True)
     voyage_id = result["voyage_id"]

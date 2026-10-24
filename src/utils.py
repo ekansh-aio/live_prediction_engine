@@ -9,7 +9,7 @@ import pandas as pd
 
 
 def parse_dt(value):
-    return pd.to_datetime(value, format="mixed", utc=True, errors="coerce")
+    return pd.to_datetime(value, utc=True, errors="coerce")
 
 
 def interval_to_hours(val):
@@ -31,6 +31,8 @@ def interval_to_hours(val):
 
 
 def jsonable(value):
+    if value is pd.NaT:
+        return None
     if isinstance(value, (pd.Timestamp, datetime, date)):
         return value.isoformat()
     if isinstance(value, dict):

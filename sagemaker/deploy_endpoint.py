@@ -16,11 +16,11 @@ from datetime import datetime, timezone
 
 import boto3
 
-ENDPOINT_NAME = "opentug-live-predict-eta"
+ENDPOINT_NAME = "opentug-live-predict-eta-py312"
 INSTANCE_TYPE = "ml.m5.xlarge"
 
-# SageMaker-managed SKLearn 1.2-1 container image (us-east-1)
-SKLEARN_IMAGE_URI = "683313688378.dkr.ecr.us-east-1.amazonaws.com/sagemaker-scikit-learn:1.2-1-cpu-py3"
+# SageMaker-managed SKLearn 1.4-2 container image with Python 3.12 (us-east-1)
+SKLEARN_IMAGE_URI = "683313688378.dkr.ecr.us-east-1.amazonaws.com/sagemaker-scikit-learn:1.4-2-py312"
 
 
 def get_execution_role(sm) -> str:

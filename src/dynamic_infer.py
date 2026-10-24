@@ -188,6 +188,14 @@ def build_dynamic_live_row(current_leg: pd.Series, ais_df: pd.DataFrame, statusl
     ts_started = pd.to_datetime(current_leg.get("TIME_STARTED"), utc=True, errors="coerce")
     ts_eta_updated = pd.to_datetime(current_leg.get("ETA_UPDATED"), utc=True, errors="coerce")
     departure_anchor = ts_started if pd.notna(ts_started) else ts_eta_updated
+    if pd.isna(departure_anchor) and len(ais) > 0:
+        _ais_ts = pd.to_datetime(ais.get("TIMESTAMP"), utc=True, errors="coerce").dropna()
+        if len(_ais_ts):
+            departure_anchor = _ais_ts.min()
+            log.warning(
+                "leg_id=%s: departure_anchor derived from first AIS ping (%s) — TIME_STARTED and ETA_UPDATED both missing",
+                current_leg.get("ID"), departure_anchor,
+            )
     planned_speed = _safe_float(current_leg.get("ESTIMATED_SPEED"))
     planned_distance = _safe_float(current_leg.get("ESTIMATED_DISTANCE"))
     planned_h = _planned_duration_h(planned_distance, planned_speed)
@@ -317,6 +325,14 @@ def build_dynamic_live_row(current_leg: pd.Series, ais_df: pd.DataFrame, statusl
     cumulative_dist_nm = min(planned_distance, elapsed_h * moving2) if pd.notna(planned_distance) and pd.notna(elapsed_h) and pd.notna(moving2) else np.nan
     dist_per_hour_actual = (cumulative_dist_nm / elapsed_h) if pd.notna(cumulative_dist_nm) and elapsed_h > 0 else np.nan
     overall_pace_ratio = (dist_per_hour_actual / planned_speed) if pd.notna(dist_per_hour_actual) and pd.notna(planned_speed) and planned_speed > 0 else np.nan
+    # When elapsed has overrun the original plan, rebase progress on speed-inferred
+    # distance so progress_pct stays ≤ 1 and remaining_distance/naive stay positive.
+    if (pd.notna(planned_h) and planned_h > 0
+            and pd.notna(elapsed_h) and elapsed_h > planned_h
+            and pd.notna(cumulative_dist_nm) and pd.notna(planned_distance) and planned_distance > 0):
+        progress_pct = min(cumulative_dist_nm / planned_distance, 0.999)
+        remaining_distance_nm = max(planned_distance - cumulative_dist_nm, 0.0)
+        remaining_naive = (remaining_distance_nm / max(sog8, 0.5)) if pd.notna(sog8) else np.nan
     speed_adj_progress = (1.0 - remaining_naive / planned_h) if pd.notna(remaining_naive) and pd.notna(planned_h) and planned_h > 0 else progress_pct
     speed_adjusted_remaining_h = max(elapsed_h / progress_pct - elapsed_h, 0.0) if pd.notna(sog2) and sog2 > 0.5 and pd.notna(progress_pct) and progress_pct > 0 else np.nan
     is_stopped = float(int(pd.notna(sog2) and sog2 < 0.5)) if pd.notna(sog2) else np.nan
@@ -408,30 +424,113 @@ def build_dynamic_live_row(current_leg: pd.Series, ais_df: pd.DataFrame, statusl
     return row
 
 
-def predict_dynamic(current_leg: pd.Series, ais_df: pd.DataFrame, statuslog_df: pd.DataFrame, now_ts: pd.Timestamp, predictor: DynamicPredictor, voyage_df: pd.DataFrame | None = None):
+_SMOOTH_ALPHA = 0.7      # weight on previous prediction; higher = more stable ETA
+_SMOOTH_MAX_AGE_H = 2.0  # ignore previous prediction older than this
+
+
+def predict_dynamic(current_leg: pd.Series, ais_df: pd.DataFrame, statuslog_df: pd.DataFrame, now_ts: pd.Timestamp, predictor: DynamicPredictor, voyage_df: pd.DataFrame | None = None, model_a_pred_h: float | None = None, prev_dynamic_h: float | None = None, prev_as_of_utc: pd.Timestamp | None = None):
     row = build_dynamic_live_row(current_leg, ais_df, statuslog_df, now_ts, voyage_df=voyage_df)
     remaining_h = predictor.predict_for_row(row, row.get("progress_pct", np.nan))
+    progress_pct = row.get("progress_pct", np.nan)
+
+    if (remaining_h == 0.0
+            and (pd.isna(progress_pct) or progress_pct <= 1.0)
+            and float(row.get("ctx_ping_count", 0)) > 0
+            and model_a_pred_h is not None and pd.notna(model_a_pred_h)):
+        elapsed = float(row.get("elapsed_h") or 0.0)
+        ma_rem = max(0.0, float(model_a_pred_h) - elapsed)
+        if ma_rem > 0:
+            log.warning(
+                "Dynamic returned 0.0 despite %d AIS pings (progress_pct=%s). "
+                "Falling back to Model A remaining (%.2f h).",
+                int(row.get("ctx_ping_count", 0)),
+                f"{progress_pct:.2f}" if pd.notna(progress_pct) else "NaN",
+                ma_rem,
+            )
+            remaining_h = ma_rem
+        else:
+            log.warning(
+                "Dynamic returned 0.0 despite %d AIS pings; elapsed (%.1fh) > model_a (%.1fh). "
+                "Using model_a_pred_h directly as conservative remaining estimate.",
+                int(row.get("ctx_ping_count", 0)), elapsed, float(model_a_pred_h),
+            )
+            remaining_h = float(model_a_pred_h)
 
     # When elapsed > planned the model is operating out-of-distribution.
     # Fall back to AIS_ETA (vessel's own transponder broadcast) — independent
     # of any Opentug estimate, which this system is intended to replace.
     # If AIS_ETA is also unavailable or expired, fall back to naive_remaining_h.
-    progress_pct = row.get("progress_pct", np.nan)
     if pd.notna(progress_pct) and progress_pct > 1.0:
         ais_rem = row.get("ais_eta_remaining_h", np.nan)
         if pd.notna(ais_rem) and ais_rem > 0:
             remaining_h = float(ais_rem)
         else:
-            log.warning(
-                "Over-elapsed leg (progress_pct=%.1f, elapsed_h=%.1f): "
-                "AIS ETA override not applicable (ais_eta_remaining_h=%s). "
-                "Falling back to naive_remaining_h.",
-                progress_pct,
-                row.get("elapsed_h", float("nan")),
-                ais_rem,
-            )
-            naive = row.get("naive_remaining_h", np.nan)
-            remaining_h = float(naive) if pd.notna(naive) and naive >= 0 else 0.0
+            ma_rem = np.nan
+            if model_a_pred_h is not None and pd.notna(model_a_pred_h):
+                elapsed = float(row.get("elapsed_h") or 0.0)
+                ma_rem = max(0.0, float(model_a_pred_h) - elapsed)
+
+            if pd.notna(ma_rem) and ma_rem > 0:
+                log.warning(
+                    "Over-elapsed leg (progress_pct=%.1f, elapsed_h=%.1f): "
+                    "AIS ETA not applicable. Falling back to Model A remaining (%.2f h).",
+                    progress_pct,
+                    row.get("elapsed_h", float("nan")),
+                    ma_rem,
+                )
+                remaining_h = ma_rem
+            else:
+                naive = row.get("naive_remaining_h", np.nan)
+                if pd.notna(naive) and float(naive) > 0:
+                    log.warning(
+                        "Over-elapsed leg (progress_pct=%.1f, elapsed_h=%.1f): "
+                        "Model A not applicable. Falling back to naive_remaining_h (%.2fh).",
+                        progress_pct, row.get("elapsed_h", float("nan")), float(naive),
+                    )
+                    remaining_h = float(naive)
+                elif model_a_pred_h is not None and pd.notna(model_a_pred_h) and float(model_a_pred_h) > 0:
+                    log.warning(
+                        "Over-elapsed leg (progress_pct=%.1f, elapsed_h=%.1f): "
+                        "All fallbacks give 0. Using model_a_pred_h=%.1fh directly as conservative estimate.",
+                        progress_pct, row.get("elapsed_h", float("nan")), float(model_a_pred_h),
+                    )
+                    remaining_h = float(model_a_pred_h)
+                else:
+                    log.warning(
+                        "Over-elapsed leg (progress_pct=%.1f, elapsed_h=%.1f): "
+                        "No fallback available (model_a_pred_h=%s). Returning 0.",
+                        progress_pct, row.get("elapsed_h", float("nan")), model_a_pred_h,
+                    )
+                    remaining_h = 0.0
+
+    # ETA smoothing: blend new prediction with previous, decayed by elapsed time.
+    if (prev_dynamic_h is not None and pd.notna(prev_dynamic_h) and float(prev_dynamic_h) > 0
+            and prev_as_of_utc is not None and pd.notna(prev_as_of_utc)):
+        age_h = (now_ts - prev_as_of_utc).total_seconds() / 3600.0
+        if 0 < age_h <= _SMOOTH_MAX_AGE_H:
+            prev_decayed = max(0.0, float(prev_dynamic_h) - age_h)
+            if prev_decayed > 0:
+                smoothed = (1.0 - _SMOOTH_ALPHA) * remaining_h + _SMOOTH_ALPHA * prev_decayed
+                log.info(
+                    "ETA smooth: raw=%.2fh prev_decayed=%.2fh -> smoothed=%.2fh (age=%.2fh)",
+                    remaining_h, prev_decayed, smoothed, age_h,
+                )
+                remaining_h = smoothed
+
+    if model_a_pred_h is not None and pd.notna(model_a_pred_h) and float(model_a_pred_h) > 0:
+        _contextual_cap = float(model_a_pred_h) * config.DYNAMIC_REMAINING_MA_CAP
+    else:
+        _planned_h = row.get("planned_dur_h", np.nan)
+        _contextual_cap = (float(_planned_h) * config.DYNAMIC_REMAINING_PLAN_CAP
+                           if pd.notna(_planned_h) and float(_planned_h) > 0 else float("inf"))
+    _cap = min(config.DYNAMIC_REMAINING_CAP_H, _contextual_cap)
+    if remaining_h > _cap:
+        log.warning(
+            "remaining_h=%.1f exceeds contextual cap=%.1f "
+            "(model_a_pred_h=%s, planned_dur_h=%s). Clamping.",
+            remaining_h, _cap, model_a_pred_h, row.get("planned_dur_h"),
+        )
+        remaining_h = _cap
 
     row["dynamic_remaining_h"] = remaining_h
     return remaining_h, row, jsonable(row)
