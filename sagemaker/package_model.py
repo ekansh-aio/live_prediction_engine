@@ -24,6 +24,10 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_FILES = [
     ROOT / "assets/lookups/port_lookup.parquet",
     ROOT / "assets/lookups/vessel_features.parquet",
+    ROOT / "assets/lookups/vessel_hist_lookup.parquet",
+    ROOT / "assets/lookups/vessel_route_lookup.parquet",
+    ROOT / "assets/lookups/pp_hist_lookup.parquet",
+    ROOT / "assets/lookups/route_tortuosity_lookup.parquet",
     ROOT / "assets/models/model_a.txt",
     ROOT / "assets/models/dynamic_model_early.txt",
     ROOT / "assets/models/dynamic_model_late.txt",
@@ -32,6 +36,7 @@ REQUIRED_FILES = [
     ROOT / "assets/models/future_leg_correction_lists.json",
     ROOT / "assets/model_a/route_patterns_v3.csv",
     ROOT / "assets/model_a/voyage_ais_atl_aggregates_clean.csv",
+    ROOT / "assets/model_a/encoding_priors.parquet",
     ROOT / "assets/features/bias_correction.json",
 ]
 

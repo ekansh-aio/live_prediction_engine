@@ -1,0 +1,120 @@
+{
+  "voyage_id": 125436,
+  "snapshot_ts": "2026-10-23T15:44:27.601723+00:00",
+  "voyage_legs": [
+    {
+      "ID": 169665,
+      "VOYAGE_ID": 125436,
+      "SEQUENCE_NUM": 0,
+      "START_PORT_ID": 25087,
+      "END_PORT_ID": 25087,
+      "SERVICE_TYPE": 1,
+      "LEG_TYPE": 1,
+      "START_STOP_TYPE": 1,
+      "END_STOP_TYPE": 2,
+      "TIME_STARTED": "2026-10-22T06:39:46Z",
+      "ETA_UPDATED": "2026-10-22T09:03:46Z",
+      "TIME_COMPLETED": null,
+      "INITIAL_ETA": "2026-10-22T15:04:43.794Z",
+      "TIME_CREATED": "2026-10-22T14:17:35.169Z",
+      "EARLIEST_DEPARTURE": "2026-10-22T14:17:32.338Z",
+      "LATEST_DEPARTURE": "2026-10-22T14:17:32.338Z",
+      "EARLIEST_ARRIVAL": "2026-10-22T14:17:32.338Z",
+      "LATEST_ARRIVAL": "2026-10-22T14:17:32.338Z",
+      "ESTIMATED_DISTANCE": 0.0,
+      "ESTIMATED_SPEED": 4.536128871065735,
+      "NUM_LOCKS": 0,
+      "LOCKS_HOURS_INCLUDED": 0.0,
+      "SELECTED_ROUTE": {
+        "locks": [],
+        "distance": 0.0,
+        "duration": "00:00:00",
+        "coordinates": [
+          {
+            "lat": 37.515247986694185,
+            "lng": -89.50400736299075
+          },
+          {
+            "lat": 37.515247986694185,
+            "lng": -89.50400736299075
+          }
+        ],
+        "fuel_prices": null,
+        "max_clearance": null,
+        "min_clearance": null,
+        "narrowest_lock": null,
+        "activity_report": null,
+        "waterway_segments": [],
+        "lock_width_warning": false,
+        "terminals_in_route": null
+      },
+      "BARGE_SLOTS": null,
+      "CAPACITY_WEIGHT": null,
+      "IDLE_FUEL_PER_DAY": 515.6688627264417,
+      "FUEL_BURN_PER_DAY": 4999.886127673177,
+      "EDITED_ROUTE": false,
+      "TIME_IN_START_PORT": "12:00:00",
+      "TIME_IN_END_PORT": "12:00:00",
+      "START_STANDBY_TIME": "00:00:00",
+      "END_STANDBY_TIME": "00:00:00",
+      "CAPACITY_BARRELS": null
+    }
+  ],
+  "current_leg_ais": [],
+  "current_leg_statuslog": [
+    {
+      "SAILING_ID": 169665,
+      "TIME_CREATED": "2026-10-22T15:01:22.361Z",
+      "EVENT_TYPE": 3,
+      "MILE_MARKER_ID": 6790,
+      "ETA": "2026-10-22T15:09:54.400Z"
+    },
+    {
+      "SAILING_ID": 169665,
+      "TIME_CREATED": "2026-10-22T15:01:22.517Z",
+      "EVENT_TYPE": 2,
+      "MILE_MARKER_ID": 6754,
+      "ETA": "2026-10-22T19:30:42.979Z"
+    },
+    {
+      "SAILING_ID": 169665,
+      "TIME_CREATED": "2026-10-22T15:01:22.823Z",
+      "EVENT_TYPE": 5,
+      "MILE_MARKER_ID": 6754,
+      "ETA": "2026-10-22T19:32:30.551Z"
+    },
+    {
+      "SAILING_ID": 169665,
+      "TIME_CREATED": "2026-10-22T15:01:22.983Z",
+      "EVENT_TYPE": 2,
+      "MILE_MARKER_ID": 6788,
+      "ETA": "2026-10-22T17:03:56.354Z"
+    },
+    {
+      "SAILING_ID": 169665,
+      "TIME_CREATED": "2026-10-22T17:03:56.825Z",
+      "EVENT_TYPE": 3,
+      "MILE_MARKER_ID": 6788,
+      "ETA": "2026-10-23T14:19:46.600Z"
+    }
+  ],
+  "vessel_features": [
+    {
+      "SUBSERVICE_ID": 169665,
+      "TOW_SIZE": 1,
+      "TUG_BHP": null,
+      "TUG_SPEED_LADEN": null,
+      "TUG_SPEED_UPRIVER": null,
+      "TUG_SPEED_DOWNRIVER": null,
+      "TUG_LENGTH": null,
+      "TUG_BREADTH": null,
+      "TUG_DRAFT": null,
+      "TOTAL_BARGE_TONNAGE": 0.0,
+      "AVG_BARGE_DRAFT": 13.0,
+      "TOTAL_DEADWEIGHT": 1600.0,
+      "TOTAL_LOADED_TONS": null,
+      "TOTAL_LOADED_BARRELS": null,
+      "TOTAL_ASSETS": 1
+    }
+  ]
+}

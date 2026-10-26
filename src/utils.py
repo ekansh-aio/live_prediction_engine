@@ -9,7 +9,7 @@ import pandas as pd
 
 
 def parse_dt(value):
-    return pd.to_datetime(value, utc=True, errors="coerce")
+    return pd.to_datetime(value, format="ISO8601", utc=True, errors="coerce")
 
 
 def interval_to_hours(val):

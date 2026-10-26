@@ -35,7 +35,8 @@ def apply(remaining_h: float, n_future_legs):
     if not tab:
         return raw, 0.0, None, None
     adj = float(tab.get("legs_ahead_adj_h", {}).get(legs_bucket(n_future_legs), 0.0))
-    corr = max(raw - adj, 0.0)
+    effective_adj = min(adj, raw * 0.50)
+    corr = max(raw - effective_adj, 0.0)
     lo, hi = tab.get("logratio_p10"), tab.get("logratio_p90")
     p10 = max(math.exp(lo) * (corr + 1) - 1, 0.0) if lo is not None else None
     p90 = max(math.exp(hi) * (corr + 1) - 1, 0.0) if hi is not None else None

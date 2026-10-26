@@ -353,7 +353,7 @@ def predict_voyage_from_data(payload: dict, *, preloaded: dict | None = None) ->
             voyage_df[c] = parse_dt(voyage_df[c])
     # Only reclassify if LEG_STATUS is absent — callers that pre-fetched via
     # fetch_live_voyage_spine already have the correct status in the payload.
-    if "LEG_STATUS" not in voyage_df.columns:
+    if "LEG_STATUS" not in voyage_df.columns or voyage_df["LEG_STATUS"].isna().all():
         voyage_df = classify_leg_status(voyage_df)
     voyage_df = voyage_df.sort_values(["VOYAGE_ID", "SEQUENCE_NUM"]).reset_index(drop=True)
 
@@ -395,12 +395,13 @@ def predict_voyage_from_data(payload: dict, *, preloaded: dict | None = None) ->
     ma_by_id = {int(k): v for k, v in ma_scores.set_index("ID")["predicted_duration_h"].to_dict().items()}
 
     prev_dynamic_h, prev_as_of_utc = None, None
-    _prev = load_latest(int(payload["voyage_id"]))
-    if _prev:
-        _prev_leg = next((l for l in _prev.get("legs", []) if l.get("role") == "current"), None)
-        if _prev_leg and _prev_leg.get("dynamic_pred_h") is not None:
-            prev_dynamic_h = float(_prev_leg["dynamic_pred_h"])
-            prev_as_of_utc = pd.Timestamp(_prev["as_of_utc"])
+    if not payload.get("disable_smoothing"):
+        _prev = load_latest(int(payload["voyage_id"]))
+        if _prev:
+            _prev_leg = next((l for l in _prev.get("legs", []) if l.get("role") == "current"), None)
+            if _prev_leg and _prev_leg.get("dynamic_pred_h") is not None:
+                prev_dynamic_h = float(_prev_leg["dynamic_pred_h"])
+                prev_as_of_utc = pd.Timestamp(_prev["as_of_utc"])
 
     dynamic_remaining_h, dynamic_row, dynamic_features = predict_dynamic(
         current_leg, ais_df, statuslog_df, snapshot_ts, dynamic, voyage_df=voyage_df,

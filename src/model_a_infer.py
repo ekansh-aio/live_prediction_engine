@@ -61,6 +61,8 @@ _RIVER_SETS = {
                   "Caruthersville, MO", "New Madrid"},
     "Mobile": {"Mobile", "Pascagoula, MS", "Tampa, FL", "Port Everglades, FL", "New Haven, CT"},
 }
+_ICE_MONTHS = {12, 1, 2}
+_ICE_RIVERS = {"UpperMiss", "IllinoisWaterway"}
 
 
 def river_system(area_name, lat=None):
@@ -89,7 +91,10 @@ class ModelAInfer:
         self.carrier_map = assets.read_optional(config.MODEL_A_FILES["carrier_map"])
         self.voyage_extras = assets.read_optional(config.MODEL_A_FILES["voyage_extras"])
         self.context = assets.read_optional(config.FEATURE_FILES["leg_context"])
-        self.encoding_priors = assets.read_optional(config.MODEL_A_FILES["encoding_priors"])
+        self.encoding_priors = (
+            assets.read_optional(config.MODEL_A_FILES["encoding_priors"])
+            if config.MODEL_A_USE_ENCODING_PRIORS else None
+        )
         self._prepare_assets()
 
     def _prepare_assets(self):
@@ -139,7 +144,7 @@ class ModelAInfer:
         if self.encoding_priors is not None:
             pri = self.encoding_priors.copy()
             pri.columns = [str(c).lower() for c in pri.columns]
-            self.pp = pri[pri.get("level").eq("port_pair")].copy() if "level" in pri.columns else None
+            self.pp = pri.copy()
         else:
             self.pp = None
 
@@ -176,12 +181,15 @@ class ModelAInfer:
     def parse_route_all(val):
         keys = ("route_dur_h", "route_dist_nm", "route_locks_n", "route_delay_sum_h", "route_process_sum_h", "route_min_width", "route_min_length", "route_rivers_n", "route_giww")
         out = dict.fromkeys(keys, np.nan)
-        if pd.isna(val):
+        if val is None or (not isinstance(val, dict) and pd.isna(val)):
             return out
-        try:
-            r = json.loads(val)
-        except Exception:
-            return out
+        if isinstance(val, dict):
+            r = val
+        else:
+            try:
+                r = json.loads(val)
+            except Exception:
+                return out
         if not isinstance(r, dict):
             return out
         out["route_dur_h"] = interval_to_hours(r.get("duration"))
@@ -308,25 +316,45 @@ class ModelAInfer:
             d["end_port_hist_by_svc"] = gm
             d["pair_svc_count"] = 0.0
         else:
-            shortcut = self.pp.set_index("key")
-            gm = float(shortcut.get("global_mean", pd.Series([0.0])).iloc[0]) if "global_mean" in shortcut.columns else 0.0
-            gs = float(shortcut.get("global_std", pd.Series([1.0])).iloc[0]) if "global_std" in shortcut.columns else 1.0
-            pp = shortcut[shortcut["kind"].eq("pair")] if "kind" in shortcut.columns else shortcut
-            d["pair_hist_resid"] = d["port_pair"].map(pp.get("pair_mean")).fillna(gm)
-            d["pair_hist_std"] = d["port_pair"].map(pp.get("pair_std")).fillna(gs)
-            d["pair_hist_count"] = d["port_pair"].map(pp.get("pair_count")).fillna(1.0)
-            d["pair_hist_iqr"] = d["port_pair"].map(pp.get("pair_iqr")).fillna(gs)
-            d["pair_hist_median"] = d["port_pair"].map(pp.get("pair_median")).fillna(gm)
-            d["pair_hist_cv"] = d["pair_hist_std"] / (d["pair_hist_resid"].abs() + 0.001)
-            d["start_port_hist"] = gm
-            d["end_port_hist"] = gm
+            by_kind = {k: grp.set_index("key") for k, grp in self.pp.groupby("kind")} if "kind" in self.pp.columns else {}
+            pair_pp     = by_kind.get("pair",           pd.DataFrame())
+            sp_pp       = by_kind.get("start_port",     pd.DataFrame())
+            ep_pp       = by_kind.get("end_port",       pd.DataFrame())
+            pair_svc_pp = by_kind.get("pair_svc",       pd.DataFrame())
+            sp_svc_pp   = by_kind.get("start_port_svc", pd.DataFrame())
+            ep_svc_pp   = by_kind.get("end_port_svc",   pd.DataFrame())
+            ref = pair_pp if len(pair_pp) else self.pp.set_index("key")
+            gm = float(ref["global_mean"].iloc[0]) if "global_mean" in ref.columns and len(ref) else 0.0
+            gs = float(ref["global_std"].iloc[0])  if "global_std"  in ref.columns and len(ref) else 1.0
+
+            def _map(df, key_series, col, fallback):
+                if len(df) and col in df.columns:
+                    return key_series.map(df[col]).fillna(fallback)
+                return pd.Series(fallback, index=key_series.index)
+
+            d["pair_hist_resid"]  = _map(pair_pp, d["port_pair"], "pair_mean",   gm)
+            d["pair_hist_std"]    = _map(pair_pp, d["port_pair"], "pair_std",    gs)
+            d["pair_hist_count"]  = _map(pair_pp, d["port_pair"], "pair_count",  1.0)
+            d["pair_hist_iqr"]    = _map(pair_pp, d["port_pair"], "pair_iqr",    gs)
+            d["pair_hist_median"] = _map(pair_pp, d["port_pair"], "pair_median", gm)
+            d["pair_hist_cv"]     = d["pair_hist_std"] / (d["pair_hist_resid"].abs() + 0.001)
+
+            d["start_port_hist"] = _map(sp_pp, d["START_PORT_ID"].astype(str), "pair_mean", gm)
+            d["end_port_hist"]   = _map(ep_pp, d["END_PORT_ID"].astype(str),   "pair_mean", gm)
+
+            svc_str      = d["SERVICE_TYPE"].astype(str) if "SERVICE_TYPE" in d.columns else pd.Series("", index=d.index)
+            pair_svc_key = d["port_pair"] + "_" + svc_str
+            sp_svc_key   = d["START_PORT_ID"].astype(str) + "_" + svc_str
+            ep_svc_key   = d["END_PORT_ID"].astype(str)   + "_" + svc_str
+
+            d["pair_hist_resid_by_svc"]  = _map(pair_svc_pp, pair_svc_key, "pair_mean",  gm)
+            d["start_port_hist_by_svc"]  = _map(sp_svc_pp,   sp_svc_key,   "pair_mean",  gm)
+            d["end_port_hist_by_svc"]    = _map(ep_svc_pp,   ep_svc_key,   "pair_mean",  gm)
+            d["pair_svc_count"]          = _map(pair_svc_pp, pair_svc_key, "pair_count", 0.0)
+
             d["carrier_hist_resid"] = gm
-            d["carrier_hist_std"] = gs
+            d["carrier_hist_std"]   = gs
             d["carrier_hist_count"] = 0.0
-            d["pair_hist_resid_by_svc"] = gm
-            d["start_port_hist_by_svc"] = gm
-            d["end_port_hist_by_svc"] = gm
-            d["pair_svc_count"] = 0.0
         d["pair_hist_resid_x_count"] = d["pair_hist_resid"] * d["pair_hist_count"]
         d["pair_hist_median_x_count"] = d["pair_hist_median"] * d["pair_hist_count"]
         return d
@@ -392,7 +420,11 @@ class ModelAInfer:
         d["bearing_deg"] = _bearing_deg(pd.to_numeric(d.get("START_PORT_LAT"), errors="coerce"), pd.to_numeric(d.get("START_PORT_LON"), errors="coerce"), pd.to_numeric(d.get("END_PORT_LAT"), errors="coerce"), pd.to_numeric(d.get("END_PORT_LON"), errors="coerce"))
         d["lat_midpoint"] = (pd.to_numeric(d.get("START_PORT_LAT"), errors="coerce") + pd.to_numeric(d.get("END_PORT_LAT"), errors="coerce")) / 2
         d["route_dur_vs_naive"] = pd.to_numeric(d.get("route_dur_h"), errors="coerce") - d["naive_h"]
-        d["edited_route_flag"] = d.get("EDITED_ROUTE", False).fillna(False).astype(int)
+        edited_route = d.get("EDITED_ROUTE")
+        if edited_route is None:
+            d["edited_route_flag"] = 0
+        else:
+            d["edited_route_flag"] = edited_route.fillna(False).astype(int)
         d["tow_size_x_distance"] = pd.to_numeric(d.get("TOW_SIZE"), errors="coerce") * pd.to_numeric(d.get("ESTIMATED_DISTANCE"), errors="coerce")
         d["deadweight_x_speed"] = pd.to_numeric(d.get("TOTAL_DEADWEIGHT"), errors="coerce") * pd.to_numeric(d.get("ESTIMATED_SPEED"), errors="coerce")
         d["dep_month_x_route_dur"] = d["dep_month"] * pd.to_numeric(d.get("route_dur_h"), errors="coerce").fillna(d["naive_h"])
@@ -404,10 +436,14 @@ class ModelAInfer:
         m = d["dep_month"]
         d["month_sin"] = np.sin(2 * np.pi * m / 12.0)
         d["month_cos"] = np.cos(2 * np.pi * m / 12.0)
+        d["RIVER_SYSTEM"] = [river_system(a, la) for a, la in zip(d.get("START_PORT_AREA"), d.get("START_PORT_LAT"))]
+        d["ice_season"] = (d["RIVER_SYSTEM"].isin(_ICE_RIVERS) & d["dep_month"].isin(_ICE_MONTHS)).astype(int)
+        d["season4"] = self._season4(m)
+        d["season_river"] = d["season4"].astype(str) + "_" + d["RIVER_SYSTEM"].astype(str)
         d["upstream_flag"] = (((d["bearing_deg"] >= 315) | (d["bearing_deg"] < 45))).astype(int)
-        d["low_water"] = 0
-        d["spring_flood"] = 0
-        d["hurricane_gulf"] = 0
+        d["low_water"] = ((d["RIVER_SYSTEM"] == "LowerMiss") & m.isin([8, 9, 10, 11])).astype(int)
+        d["spring_flood"] = (d["RIVER_SYSTEM"].isin(["UpperMiss", "IllinoisWaterway"]) & m.isin([3, 4, 5, 6])).astype(int)
+        d["hurricane_gulf"] = ((d["RIVER_SYSTEM"] == "GulfCoast") & m.isin([6, 7, 8, 9, 10, 11])).astype(int)
         d["mon_x_locks"] = m * pd.to_numeric(d.get("NUM_LOCKS"), errors="coerce")
         svc01 = pd.to_numeric(d["SERVICE_TYPE"], errors="coerce").eq(2).astype(float) if "SERVICE_TYPE" in d.columns else 0.0
         d["svc_x_naive"] = svc01 * d["naive_h"]
@@ -419,6 +455,12 @@ class ModelAInfer:
         d["barge_slots"] = pd.to_numeric(d.get("BARGE_SLOTS"), errors="coerce")
         d["util_weight"] = np.where(pd.to_numeric(d.get("CAPACITY_WEIGHT"), errors="coerce") > 0, pd.to_numeric(d.get("TOTAL_LOADED_TONS"), errors="coerce") / pd.to_numeric(d.get("CAPACITY_WEIGHT"), errors="coerce"), np.nan)
         d["util_vol"] = np.where(pd.to_numeric(d.get("CAPACITY_BARRELS"), errors="coerce") > 0, pd.to_numeric(d.get("TOTAL_LOADED_BARRELS"), errors="coerce") / pd.to_numeric(d.get("CAPACITY_BARRELS"), errors="coerce"), np.nan)
+        route_min_width = pd.to_numeric(d.get("route_min_width"), errors="coerce")
+        route_min_length = pd.to_numeric(d.get("route_min_length"), errors="coerce")
+        tug_breadth = pd.to_numeric(d.get("TUG_BREADTH"), errors="coerce")
+        tug_length = pd.to_numeric(d.get("TUG_LENGTH"), errors="coerce")
+        d["squeeze_beam"] = np.where(route_min_width > 0, tug_breadth / route_min_width, np.nan)
+        d["squeeze_len"] = np.where(route_min_length > 0, tug_length / route_min_length, np.nan)
         d["local_dep_hour"] = d["dep_hour"]
         d["is_night_local"] = d["local_dep_hour"].isin([22, 23, 0, 1, 2, 3, 4, 5]).astype(int)
         d["port_pop_log"] = np.nan

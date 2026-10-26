@@ -34,7 +34,8 @@ def env(name: str, default: str | None = None) -> str | None:
 
 
 SF_MODE = env("SF_MODE", "daemon")
-MODEL_A_TARGET_MODE = env("MODEL_A_TARGET_MODE", "log_ratio")
+MODEL_A_TARGET_MODE = env("MODEL_A_TARGET_MODE", "naive_residual")
+MODEL_A_USE_ENCODING_PRIORS = env("MODEL_A_USE_ENCODING_PRIORS", "1") == "1"
 
 DYNAMIC_REMAINING_CAP_H    = float(env("DYNAMIC_REMAINING_CAP_H",    "720") or "720")
 DYNAMIC_REMAINING_MA_CAP   = float(env("DYNAMIC_REMAINING_MA_CAP",   "3")   or "3")

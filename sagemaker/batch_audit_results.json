@@ -1,0 +1,4935 @@
+[
+  {
+    "voyage_id": 125362,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 125362,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "TOWING_RATE_UNIT": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "HIDE_INTERCHANGE_RATE": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "TOWING_RATE_UNIT",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "HIDE_INTERCHANGE_RATE",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 2
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.11,
+      "consolidated_eta": "2026-10-25T12:26:46.119721666+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.22027836203696466,
+      "model_a_pred_h": 0.07342612067898822,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-22 10:30:04+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 125295,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 125295,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 540,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "38/540",
+          "OPENTUG_ETA": "540/540"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 7
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.06,
+      "consolidated_eta": "2026-10-25T12:23:49.248002450+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.11746849525022146,
+      "model_a_pred_h": 0.039156165083407156,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-23 08:16:08+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 124312,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 124312,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "ETA_UPDATED": "1/1",
+          "INITIAL_ETA": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "ETA_UPDATED",
+          "INITIAL_ETA",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 1031,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "51/1031",
+          "OPENTUG_ETA": "1031/1031"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 34
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.02,
+      "consolidated_eta": "2026-10-25T12:21:54.972794801+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.049716458223012565,
+      "model_a_pred_h": 0.01657215274100419,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-16 20:51:26+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 124258,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 124258,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "ETA_UPDATED": "1/1",
+          "INITIAL_ETA": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "ETA_UPDATED",
+          "INITIAL_ETA",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 921,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "60/921",
+          "OPENTUG_ETA": "921/921"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 1
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:22:44.881520684+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.07374427926903479,
+      "model_a_pred_h": 0.024581426423011594,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-19 18:34:03+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 124256,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 124256,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 0
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.05,
+      "consolidated_eta": "2026-10-25T12:23:39.106605899+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.10119310661061479,
+      "model_a_pred_h": 0.033731035536871595,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-22 05:11:26+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 124204,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 124204,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 375,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "21/375",
+          "OPENTUG_ETA": "375/375"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 3
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.03,
+      "consolidated_eta": "2026-10-25T12:22:39.689249879+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.06437561882187025,
+      "model_a_pred_h": 0.02145853960729008,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-24 00:04:59+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 123818,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 123818,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 757,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "51/757",
+          "OPENTUG_ETA": "757/757"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 5
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:23:13.875026429+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.07967574801654795,
+      "model_a_pred_h": 0.02655858267218265,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-15 13:54:20.225474+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 123813,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 123813,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 757,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "51/757",
+          "OPENTUG_ETA": "757/757"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 5
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:23:20.353940429+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.07967574801654795,
+      "model_a_pred_h": 0.02655858267218265,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-15 13:53:20.714618+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 123812,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 123812,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 757,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "51/757",
+          "OPENTUG_ETA": "757/757"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 5
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:23:27.303357429+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.07967574801654795,
+      "model_a_pred_h": 0.02655858267218265,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-15 13:53:10.875916+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 123809,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 123809,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 757,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "51/757",
+          "OPENTUG_ETA": "757/757"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 5
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:23:33.217519429+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.07967574801654795,
+      "model_a_pred_h": 0.02655858267218265,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-15 13:52:38.307693+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 123802,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 123802,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 757,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "51/757",
+          "OPENTUG_ETA": "757/757"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 5
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.05,
+      "consolidated_eta": "2026-10-25T12:24:02.288952989+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.09234061888304643,
+      "model_a_pred_h": 0.030780206294348807,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-15 13:51:28.580425+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 123798,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 123798,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 757,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "51/757",
+          "OPENTUG_ETA": "757/757"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 5
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:23:44.643888530+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.07967000529482987,
+      "model_a_pred_h": 0.026556668431609958,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-15 13:50:19.238369+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 123794,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 123794,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 757,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "51/757",
+          "OPENTUG_ETA": "757/757"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 5
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:23:57.967659958+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.08331952053254238,
+      "model_a_pred_h": 0.02777317351084746,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-15 13:49:37.893899+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 123792,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 123792,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 757,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "51/757",
+          "OPENTUG_ETA": "757/757"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 5
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:23:57.228426530+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.07967000529482987,
+      "model_a_pred_h": 0.026556668431609958,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-15 13:49:19.675106+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 123790,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 123790,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 757,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "51/757",
+          "OPENTUG_ETA": "757/757"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 5
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:24:02.817810530+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.07967000529482987,
+      "model_a_pred_h": 0.026556668431609958,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-15 13:48:59.158188+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 125574,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 125574,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 3
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_BARGE_TONNAGE": "1/1",
+          "AVG_BARGE_DRAFT": "1/1",
+          "TOTAL_DEADWEIGHT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_BARGE_TONNAGE",
+          "AVG_BARGE_DRAFT",
+          "TOTAL_DEADWEIGHT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.62,
+      "consolidated_eta": "2026-10-25T12:59:00.936401873+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 1.2418805210406736,
+      "model_a_pred_h": 1.2418805210406736,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-22 21:07:16+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 123199,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 123199,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 22
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.79,
+      "consolidated_eta": "2026-10-25T13:09:08.983497729+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 1.576416854294169,
+      "model_a_pred_h": 1.576416854294169,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-14 00:48:18+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 122534,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 122534,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 16
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_BARGE_TONNAGE": "1/1",
+          "AVG_BARGE_DRAFT": "1/1",
+          "TOTAL_DEADWEIGHT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_BARGE_TONNAGE",
+          "AVG_BARGE_DRAFT",
+          "TOTAL_DEADWEIGHT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:24:12.512248110+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.07581504450565359,
+      "model_a_pred_h": 0.025271681501884528,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-22 09:15:43+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 122528,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 122528,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 32
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_BARGE_TONNAGE": "1/1",
+          "AVG_BARGE_DRAFT": "1/1",
+          "TOTAL_DEADWEIGHT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_BARGE_TONNAGE",
+          "AVG_BARGE_DRAFT",
+          "TOTAL_DEADWEIGHT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.05,
+      "consolidated_eta": "2026-10-25T12:24:57.870522527+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.09835766807097647,
+      "model_a_pred_h": 0.03278588935699216,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-14 16:25:56+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 122527,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 122527,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 108
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_BARGE_TONNAGE": "1/1",
+          "AVG_BARGE_DRAFT": "1/1",
+          "TOTAL_DEADWEIGHT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_BARGE_TONNAGE",
+          "AVG_BARGE_DRAFT",
+          "TOTAL_DEADWEIGHT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.06,
+      "consolidated_eta": "2026-10-25T12:25:54.456899665+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.12733956592501897,
+      "model_a_pred_h": 0.04244652197500632,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-09 20:59:20+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 122520,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 122520,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 34
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_BARGE_TONNAGE": "1/1",
+          "AVG_BARGE_DRAFT": "1/1",
+          "TOTAL_DEADWEIGHT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_BARGE_TONNAGE",
+          "AVG_BARGE_DRAFT",
+          "TOTAL_DEADWEIGHT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:24:50.519063434+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.08944895913045922,
+      "model_a_pred_h": 0.029816319710153076,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-17 06:56:07+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 122511,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 122511,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 67
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_BARGE_TONNAGE": "1/1",
+          "AVG_BARGE_DRAFT": "1/1",
+          "TOTAL_DEADWEIGHT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_BARGE_TONNAGE",
+          "AVG_BARGE_DRAFT",
+          "TOTAL_DEADWEIGHT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.06,
+      "consolidated_eta": "2026-10-25T12:26:08.488819059+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.12991337947729265,
+      "model_a_pred_h": 0.04330445982576421,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-09 20:57:39+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 122510,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 122510,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 19
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_BARGE_TONNAGE": "1/1",
+          "AVG_BARGE_DRAFT": "1/1",
+          "TOTAL_DEADWEIGHT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_BARGE_TONNAGE",
+          "AVG_BARGE_DRAFT",
+          "TOTAL_DEADWEIGHT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.05,
+      "consolidated_eta": "2026-10-25T12:25:18.458225052+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.10004728780696244,
+      "model_a_pred_h": 0.03334909593565415,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-09 21:52:53+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 122507,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 122507,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 101
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_BARGE_TONNAGE": "1/1",
+          "AVG_BARGE_DRAFT": "1/1",
+          "TOTAL_DEADWEIGHT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_BARGE_TONNAGE",
+          "AVG_BARGE_DRAFT",
+          "TOTAL_DEADWEIGHT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.07,
+      "consolidated_eta": "2026-10-25T12:26:17.765017130+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.13071931507260037,
+      "model_a_pred_h": 0.04357310502420012,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-09 20:54:30+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 122501,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 122501,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 12
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_BARGE_TONNAGE": "1/1",
+          "AVG_BARGE_DRAFT": "1/1",
+          "TOTAL_DEADWEIGHT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_BARGE_TONNAGE",
+          "AVG_BARGE_DRAFT",
+          "TOTAL_DEADWEIGHT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.05,
+      "consolidated_eta": "2026-10-25T12:25:32.612694857+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.10304737325407834,
+      "model_a_pred_h": 0.034349124418026115,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-14 23:27:10+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 122495,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 122495,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 111
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_BARGE_TONNAGE": "1/1",
+          "AVG_BARGE_DRAFT": "1/1",
+          "TOTAL_DEADWEIGHT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_BARGE_TONNAGE",
+          "AVG_BARGE_DRAFT",
+          "TOTAL_DEADWEIGHT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.07,
+      "consolidated_eta": "2026-10-25T12:26:31.991705268+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.13343771459374854,
+      "model_a_pred_h": 0.044479238197916174,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-09 21:15:27+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 122486,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 122486,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 42
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_BARGE_TONNAGE": "1/1",
+          "AVG_BARGE_DRAFT": "1/1",
+          "TOTAL_DEADWEIGHT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_BARGE_TONNAGE",
+          "AVG_BARGE_DRAFT",
+          "TOTAL_DEADWEIGHT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.05,
+      "consolidated_eta": "2026-10-25T12:25:38.181345784+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.10117418932470275,
+      "model_a_pred_h": 0.033724729774900916,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-09 20:54:53+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 122467,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 122467,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 31
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_BARGE_TONNAGE": "1/1",
+          "AVG_BARGE_DRAFT": "1/1",
+          "TOTAL_DEADWEIGHT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_BARGE_TONNAGE",
+          "AVG_BARGE_DRAFT",
+          "TOTAL_DEADWEIGHT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.05,
+      "consolidated_eta": "2026-10-25T12:25:36.410667345+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.09775056685870166,
+      "model_a_pred_h": 0.03258352228623389,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-14 13:52:48+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 120736,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 120736,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "TOWING_RATE": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "END_STANDBY_TIME": "1/1",
+          "TOWING_RATE_UNIT": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "RATE_PER_LOCK_HOUR": "1/1",
+          "LOCKS_HOURS_INCLUDED": "1/1",
+          "HIDE_INTERCHANGE_RATE": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "TOWING_RATE",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "END_STANDBY_TIME",
+          "TOWING_RATE_UNIT",
+          "CARGO_CUTOFF_DATE",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "RATE_PER_LOCK_HOUR",
+          "LOCKS_HOURS_INCLUDED",
+          "HIDE_INTERCHANGE_RATE",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 844,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "58/844",
+          "OPENTUG_ETA": "844/844"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 111
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_BARGE_TONNAGE": "1/1",
+          "AVG_BARGE_DRAFT": "1/1",
+          "TOTAL_DEADWEIGHT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_BARGE_TONNAGE",
+          "AVG_BARGE_DRAFT",
+          "TOTAL_DEADWEIGHT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:25:26.202815178+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.0890986100991196,
+      "model_a_pred_h": 0.029699536699706534,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-02 19:54:51+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 118171,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 118171,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 27
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:25:11.656021769+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.07811227042725212,
+      "model_a_pred_h": 0.026037423475750707,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-10-22 14:59:16.437873+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 111720,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 111720,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 1022,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "50/1022",
+          "OPENTUG_ETA": "1022/1022"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 327
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.14,
+      "consolidated_eta": "2026-10-25T12:31:03.031791522+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.2704863547345679,
+      "model_a_pred_h": 0.2704863547345679,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-09-29 00:00:00+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 111652,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 111652,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "TOWING_RATE_UNIT": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "HIDE_INTERCHANGE_RATE": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "TOWING_RATE_UNIT",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "HIDE_INTERCHANGE_RATE",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 899,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "57/899",
+          "OPENTUG_ETA": "899/899"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 471
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_BARGE_TONNAGE": "1/1",
+          "AVG_BARGE_DRAFT": "1/1",
+          "TOTAL_DEADWEIGHT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_BARGE_TONNAGE",
+          "AVG_BARGE_DRAFT",
+          "TOTAL_DEADWEIGHT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.06,
+      "consolidated_eta": "2026-10-25T12:26:53.551849432+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.12736812357370797,
+      "model_a_pred_h": 0.042456041191235985,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-08-24 16:09:46+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 110518,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 110518,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "TOWING_RATE_UNIT": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "HIDE_INTERCHANGE_RATE": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "TOWING_RATE_UNIT",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "HIDE_INTERCHANGE_RATE",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 1017,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "58/1017",
+          "OPENTUG_ETA": "1017/1017"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 788
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.09,
+      "consolidated_eta": "2026-10-25T12:28:35.230030911+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.18009484106221144,
+      "model_a_pred_h": 0.06003161368740381,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-08-15 10:11:39+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 110076,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 110076,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "TOWING_RATE_UNIT": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "HIDE_INTERCHANGE_RATE": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "TOWING_RATE_UNIT",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "HIDE_INTERCHANGE_RATE",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 295
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.07,
+      "consolidated_eta": "2026-10-25T12:27:25.572493332+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.13832226185143626,
+      "model_a_pred_h": 0.04610742061714542,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-08-17 10:10:00+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 101262,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 101262,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "END_STANDBY_TIME": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "START_STANDBY_TIME": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "END_STANDBY_TIME",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "START_STANDBY_TIME",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 176
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.05,
+      "consolidated_eta": "2026-10-25T12:26:37.503271858+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.10846105658811149,
+      "model_a_pred_h": 0.0361536855293705,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-08-05 08:43:49+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 100045,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 100045,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "END_STANDBY_TIME": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "START_STANDBY_TIME": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "END_STANDBY_TIME",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "START_STANDBY_TIME",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 0,
+        "issues": [
+          "missing columns: ['LAT', 'LON', 'SPEED', 'TIMESTAMP']"
+        ],
+        "null_summary": {},
+        "all_null_cols": []
+      },
+      "statuslog": {
+        "rows": 456
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TUG_BHP": "1/1",
+          "TUG_SPEED_LADEN": "1/1",
+          "TUG_SPEED_UPRIVER": "1/1",
+          "TUG_SPEED_DOWNRIVER": "1/1",
+          "TUG_LENGTH": "1/1",
+          "TUG_BREADTH": "1/1",
+          "TUG_DRAFT": "1/1",
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TUG_BHP",
+          "TUG_SPEED_LADEN",
+          "TUG_SPEED_UPRIVER",
+          "TUG_SPEED_DOWNRIVER",
+          "TUG_LENGTH",
+          "TUG_BREADTH",
+          "TUG_DRAFT",
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1",
+        "WARN: no AIS rows \u2014 dynamic model will use fallback"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.06,
+      "consolidated_eta": "2026-10-25T12:27:12.683391397+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.12427485522066523,
+      "model_a_pred_h": 0.04142495174022174,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-07-02 15:49:24+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 96543,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 96543,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 994,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "69/994",
+          "OPENTUG_ETA": "994/994"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 922
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.52,
+      "consolidated_eta": "2026-10-25T12:54:56.650648767+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 1.0454674326485494,
+      "model_a_pred_h": 1.0454674326485494,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-06-23 13:48:32.807404+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 95620,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 95620,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "END_STANDBY_TIME": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "START_STANDBY_TIME": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "END_STANDBY_TIME",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "START_STANDBY_TIME",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 1021,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "71/1021",
+          "OPENTUG_ETA": "1021/1021"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 735
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:26:19.028827799+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.0875720615551257,
+      "model_a_pred_h": 0.029190687185041902,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-06-06 05:13:15+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 51403,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 51403,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 900,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "62/900",
+          "OPENTUG_ETA": "900/900"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 1808
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.05,
+      "consolidated_eta": "2026-10-25T12:26:50.937623270+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.10162057737254818,
+      "model_a_pred_h": 0.033873525790849394,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-02-03 02:17:08+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 23149,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 23149,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 897,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "46/897",
+          "OPENTUG_ETA": "897/897"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 3919
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.04,
+      "consolidated_eta": "2026-10-25T12:26:19.126314100+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.0794321445001024,
+      "model_a_pred_h": 0.0794321445001024,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2025-09-03 21:38:52+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 22939,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 22939,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 925,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "925/925",
+          "OPENTUG_ETA": "925/925"
+        },
+        "all_null_cols": [
+          "INFERRED_NUM_BARGES",
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 3101
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.02,
+      "consolidated_eta": "2026-10-25T12:25:13.216502171+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.03847092676191228,
+      "model_a_pred_h": 0.012823642253970759,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2026-01-03 09:34:58+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 22933,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 22933,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 942,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "50/942",
+          "OPENTUG_ETA": "942/942"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 2955
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.01,
+      "consolidated_eta": "2026-10-25T12:24:52.861084899+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.022717012721834844,
+      "model_a_pred_h": 0.007572337573944948,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2025-12-14 03:55:08+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  },
+  {
+    "voyage_id": 22932,
+    "payload_ok": true,
+    "audit": {
+      "voyage_id": 22932,
+      "legs": {
+        "label": "voyage_legs",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['START_PORT', 'END_PORT', 'PLANNED_DURATION_H', 'PLANNED_DIST_NM', 'VESSEL_ID']"
+        ],
+        "null_summary": {
+          "NOTES": "1/1",
+          "CUSTOM_ID": "1/1",
+          "BARGE_SLOTS": "1/1",
+          "TEU_CAPACITY": "1/1",
+          "CAPACITY_AREA": "1/1",
+          "RESERVED_BY_ID": "1/1",
+          "TIME_COMPLETED": "1/1",
+          "TOWING_COMPANY": "1/1",
+          "CAPACITY_WEIGHT": "1/1",
+          "END_TERMINAL_ID": "1/1",
+          "VOLUME_CAPACITY": "1/1",
+          "CARGO_CUTOFF_DATE": "1/1",
+          "START_TERMINAL_ID": "1/1",
+          "TOWING_CARRIER_ID": "1/1",
+          "WAYPOINT_LOCATION": "1/1",
+          "_AB_CDC_DELETED_AT": "1/1",
+          "UPDATED_SUBSERVICE_ID": "1/1",
+          "APPLIED_TARIFF_RATE_ID": "1/1",
+          "ESTIMATED_TRANSIT_TIME": "1/1",
+          "APPLIED_TOWING_TARIFF_ID": "1/1"
+        },
+        "all_null_cols": [
+          "NOTES",
+          "CUSTOM_ID",
+          "BARGE_SLOTS",
+          "TEU_CAPACITY",
+          "CAPACITY_AREA",
+          "RESERVED_BY_ID",
+          "TIME_COMPLETED",
+          "TOWING_COMPANY",
+          "CAPACITY_WEIGHT",
+          "END_TERMINAL_ID",
+          "VOLUME_CAPACITY",
+          "CARGO_CUTOFF_DATE",
+          "START_TERMINAL_ID",
+          "TOWING_CARRIER_ID",
+          "WAYPOINT_LOCATION",
+          "_AB_CDC_DELETED_AT",
+          "UPDATED_SUBSERVICE_ID",
+          "APPLIED_TARIFF_RATE_ID",
+          "ESTIMATED_TRANSIT_TIME",
+          "APPLIED_TOWING_TARIFF_ID"
+        ]
+      },
+      "ais": {
+        "label": "current_leg_ais",
+        "rows": 942,
+        "issues": [
+          "missing columns: ['LAT', 'LON']"
+        ],
+        "null_summary": {
+          "INFERRED_NUM_BARGES": "50/942",
+          "OPENTUG_ETA": "942/942"
+        },
+        "all_null_cols": [
+          "OPENTUG_ETA"
+        ]
+      },
+      "statuslog": {
+        "rows": 2957
+      },
+      "vessel_features": {
+        "label": "vessel_features",
+        "rows": 1,
+        "issues": [
+          "missing columns: ['ID', 'VESSEL_ID', 'LOA', 'BEAM', 'DRAFT']"
+        ],
+        "null_summary": {
+          "TOTAL_LOADED_TONS": "1/1",
+          "TOTAL_LOADED_BARRELS": "1/1"
+        },
+        "all_null_cols": [
+          "TOTAL_LOADED_TONS",
+          "TOTAL_LOADED_BARRELS"
+        ]
+      },
+      "flags": [
+        "SELECTED_ROUTE non-null: 1/1"
+      ]
+    },
+    "comparison": {
+      "endpoint_error": null,
+      "total_remaining_h": 0.01,
+      "consolidated_eta": "2026-10-25T12:25:01.180001899+00:00",
+      "bias_adj_h": 1.96,
+      "dynamic_pred_h": 0.022717012721834844,
+      "model_a_pred_h": 0.007572337573944948,
+      "raw_remaining_h": null,
+      "input_planned_dist_nm": null,
+      "input_planned_dur_h": null,
+      "input_time_started": "2025-12-14 03:55:08+00:00",
+      "input_time_completed": "NaT",
+      "route_features_in_response": false
+    },
+    "error": null
+  }
+]
